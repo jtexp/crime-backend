@@ -1,9 +1,6 @@
 package uzsy.download.john;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
@@ -12,70 +9,64 @@ public class Crime {
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+    private String title;
+    private Date date;
+    private boolean solved;
 
+    /*@Lob
+    private byte[] photo;*/
 
-    private UUID mId;
-    private String mTitle;
-    private Date mDate;
-    private boolean mSolved;
-//    private Photo mPhoto;
-    private String mSuspect;
 
     public Crime() {
         // Generate a unique identifier
-        mId = UUID.randomUUID();
-        mDate = new Date();
-    }
-
-
-    @Override
-    public String toString() {
-        return mTitle;
-    }
-
-    public Date getDate() {
-        return mDate;
-    }
-
-    public void setDate(Date date) {
-        mDate = date;
-    }
-
-    public boolean isSolved() {
-        return mSolved;
-    }
-
-    public void setSolved(boolean solved) {
-        mSolved = solved;
-    }
-
-    public UUID getId() {
-        return mId;
+        uuid = UUID.randomUUID();
+        date = new Date();
     }
 
     public String getTitle() {
-        return mTitle;
+        return title;
     }
 
     public void setTitle(String title) {
-        mTitle = title;
+        this.title = title;
     }
 
-/*    public Photo getPhoto() {
-        return mPhoto;
+    private UUID uuid;
+
+    public long getId() {
+        return id;
     }
 
-    public void setPhoto(Photo p){
-        mPhoto = p;
-    }*/
-
-    public String getSuspect() {
-        return mSuspect;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setSuspect(String suspect) {
-        mSuspect = suspect;
+    public UUID getUuid() {
+        return uuid;
     }
+
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public boolean isSolved() {
+        return solved;
+    }
+
+    public void setSolved(boolean solved) {
+        this.solved = solved;
+    }
+
+    @Override
+    public String toString() {
+        return title;
+    }
+
 }
 
 

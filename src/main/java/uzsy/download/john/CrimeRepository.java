@@ -9,6 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "crime", path = "crime")
 public interface CrimeRepository extends PagingAndSortingRepository<Crime, Long> {
 
-   List<Crime> findBymTitle(@Param("title") String title);
+   List<Crime> findByTitle(@Param("title") String title);
 
 }
